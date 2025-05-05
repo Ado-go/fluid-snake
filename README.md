@@ -1,5 +1,7 @@
 # fluid-snake
 
+Oldschool snake out of grid.
+
 # installation
 
 npm install
