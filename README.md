@@ -9,5 +9,5 @@ npm run dev
 
 # controll
 
-A - turn left
+A - turn left </br>
 D - turn right
