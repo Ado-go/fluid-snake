@@ -7,7 +7,7 @@ Oldschool snake out of grid.
 npm install </br>
 npm run dev
 
-# contorll
+# controll
 
 A - turn left
 D - turn right
