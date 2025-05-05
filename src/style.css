@@ -1,0 +1,16 @@
+:root {
+  --canvas-width: 500px;
+  --canvas-height: 500px;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#canvas {
+  width: var(--canvas-width);
+  height: var(--canvas-height);
+  background-color: black;
+}
