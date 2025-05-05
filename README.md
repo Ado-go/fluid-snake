@@ -4,7 +4,7 @@ Oldschool snake out of grid.
 
 # installation
 
-npm install
+npm install </br>
 npm run dev
 
 # contorll
