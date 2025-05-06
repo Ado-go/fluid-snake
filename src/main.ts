@@ -57,7 +57,10 @@ class Game {
     this.food.draw(this.ctx);
     this.snake.draw(this.ctx);
 
-    if (this.snake.bodyCollision()) {
+    if (
+      this.snake.bodyCollision() ||
+      this.snake.boundryCollision(this.width, this.height)
+    ) {
       clearInterval(this.intervalId);
       this.restartable = true;
       this.ctx.font = "48px Arial";

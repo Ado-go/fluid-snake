@@ -26,6 +26,16 @@ export default class Snake {
       : this.directionVector.rotateVector(-3);
   }
 
+  public boundryCollision(width: number, height: number) {
+    let head = this.snakeBody[0];
+    return (
+      head.x - this.radius <= 0 ||
+      head.x + this.radius >= width ||
+      head.y - this.radius <= 0 ||
+      head.y + this.radius >= height
+    );
+  }
+
   public bodyCollision() {
     let head = this.snakeBody[0];
     const maxLength = this.snakeBody.length * this.radius * 2;
@@ -48,15 +58,12 @@ export default class Snake {
 
   public foodCollision(food: Food) {
     let head = this.snakeBody[0];
-    if (
+    return (
       Math.sqrt(
         (head.x - food.position.x) ** 2 + (head.y - food.position.y) ** 2
       ) <
       this.radius * 2
-    ) {
-      return true;
-    }
-    return false;
+    );
   }
 
   public grow() {
