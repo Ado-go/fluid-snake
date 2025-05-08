@@ -1,4 +1,6 @@
 let canvas: HTMLCanvasElement = document.getElementById("canvas");
+let score = document.getElementById("score");
+let highScore = document.getElementById("high-score");
 let ctx = canvas.getContext("2d");
 
 import Snake from "./snake";
@@ -13,6 +15,8 @@ class Game {
   private ctx: CanvasRenderingContext2D;
   private snake: Snake;
   private food: Food;
+  public score: number = 0;
+  public highScore: number = 0;
   public restartable: boolean = false;
   public snakeControl: SnakeControl = null;
   public intervalId: undefined | number = undefined;
@@ -38,11 +42,23 @@ class Game {
       5
     );
     this.food = new Food(new Vector2D(300, 300), new Vector2D(500, 500), 10);
+
+    if (this.score > this.highScore) {
+      this.highScore = this.score;
+      localStorage.setItem("high-score", this.highScore.toString());
+    }
+    this.score = 0;
+
     let intervalId = setInterval(() => game.update(), 1000 / 100);
     game.intervalId = intervalId;
   }
 
   public update() {
+    if (score !== null && highScore !== null) {
+      score.innerText = "Score: " + game.score;
+      highScore.innerText = "High score: " + game.highScore;
+    }
+
     this.ctx.clearRect(0, 0, this.width, this.height);
     if (this.snakeControl === "d") {
       game.rotateSnake(true);
@@ -52,6 +68,7 @@ class Game {
     this.snake.move();
     if (this.snake.foodCollision(this.food)) {
       this.snake.grow();
+      this.score++;
       this.food.reposition();
     }
     this.food.draw(this.ctx);
@@ -95,4 +112,7 @@ document.addEventListener("keypress", (event) => {
 });
 
 let intervalId = setInterval(() => game.update(), 1000 / 100);
+if (localStorage.getItem("high-score") !== null) {
+  game.highScore = Number.parseInt(localStorage.getItem("high-score"));
+}
 game.intervalId = intervalId;
