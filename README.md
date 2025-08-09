@@ -4,11 +4,14 @@
 
 # Installation
 
-npm install </br>
+npm install
+
 npm run dev
 
 # Controll
 
-A - turn left </br>
+A - turn left
+
 D - turn right
+
 
