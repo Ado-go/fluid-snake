@@ -1,13 +1,14 @@
-# fluid-snake
+# Fluid-snake
 
-Oldschool snake out of grid.
+ Old-school snake off the grid. Collect colorful balls to gain points and grow your snake.
 
-# installation
+# Installation
 
 npm install </br>
 npm run dev
 
-# controll
+# Controll
 
 A - turn left </br>
 D - turn right
+
