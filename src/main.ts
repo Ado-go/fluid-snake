@@ -1,11 +1,11 @@
-let canvas: HTMLCanvasElement = document.getElementById("canvas");
+let canvas = document.getElementById("canvas") as HTMLCanvasElement;
 let score = document.getElementById("score");
 let highScore = document.getElementById("high-score");
-let ctx = canvas.getContext("2d");
+let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
 import Snake from "./snake";
 import Food from "./food";
-import Vector2D from "./Vector2D";
+import Vector2D from "./vector2D";
 
 type SnakeControl = null | "a" | "d";
 
@@ -113,6 +113,8 @@ document.addEventListener("keypress", (event) => {
 
 let intervalId = setInterval(() => game.update(), 1000 / 100);
 if (localStorage.getItem("high-score") !== null) {
-  game.highScore = Number.parseInt(localStorage.getItem("high-score"));
+  game.highScore = Number.parseInt(
+    localStorage.getItem("high-score") as string
+  );
 }
 game.intervalId = intervalId;

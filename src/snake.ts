@@ -1,4 +1,4 @@
-import Vector2D from "./Vector2D";
+import Vector2D from "./vector2D";
 import Food from "./food";
 
 export default class Snake {

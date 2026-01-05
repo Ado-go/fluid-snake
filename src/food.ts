@@ -1,4 +1,4 @@
-import Vector2D from "./Vector2D";
+import Vector2D from "./vector2D";
 
 export default class Food {
   public position: Vector2D;
